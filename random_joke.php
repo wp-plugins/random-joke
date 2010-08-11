@@ -82,13 +82,11 @@ class random_jokes_widgets {
                     $linkTitle = $widgetData['default_link']->link_title;
                     $linkUrl = $widgetData["default_link"]->link_url;
                 }
-                
+
                 $outputLines .= ltrim($value["description"], "|").'</br>';
 
-                //if($value["source"] && ((time() - $widgetData['ad_time']) > 604800)) {
                 if($value["source"]) {
                     $outputLines .= '<br /><small><a href="'.$linkUrl.'">'.$linkTitle.'</a></small>';
-                    
                 }
             }
             return $outputLines;
@@ -268,7 +266,6 @@ class random_jokes_widgets {
                 $options['word_count'] = $posted['word_count'];
                 $options['cachetime'] = $posted['cachetime'];
                 $options['default_link'] = $this->getLink($options['category']);
-                $options['ad_time'] = ($options['ad_time'])?$options['ad_time']:time();
 
                 $options_all[$widget_number] = $options;
             }
