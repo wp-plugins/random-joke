@@ -10,9 +10,13 @@ Random jokes widget helps you display random jokes everywhere on your blog. Over
 
 == Description ==
 
+Widget random joke displays random categorized jokes on your blog. There are over 25,000 jokes in 75 categories. Jokes are saved on our database, so you don't need to have space for all that information. Widget does not use database, but caches data to a file. 
+
 The main features:
 
 * You can add as many widgets as you need, each with it's individual set of options and display one joke from all categories or just selected ones.
+
+* You can set maximum jokes length in words and display only short jokes for example.
 
 == Installation ==
 
