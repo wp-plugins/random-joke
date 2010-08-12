@@ -82,10 +82,10 @@ class random_jokes_widgets {
                     $linkTitle = $widgetData['default_link']->link_title;
                     $linkUrl = $widgetData["default_link"]->link_url;
                 }
-
+                // Display joke
                 $outputLines .= ltrim($value["description"], "|").'</br>';
-
-                if($value["source"]) {
+                // Display link only in homepage
+                if($value["source"] && is_home()) {
                     $outputLines .= '<br /><small><a href="'.$linkUrl.'">'.$linkTitle.'</a></small>';
                 }
             }
