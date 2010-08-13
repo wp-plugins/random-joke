@@ -5,7 +5,7 @@ Plugin URI: http://www.gigacart.com/random-joke-widget.html
 Description: Widget displays random categorized jokes on your blog. There are over 25,000 jokes in 75 categories. Jokes are saved on gigacart.com database, so you don't need to have space for all the information.
 Author: GigaCart
 Author URI:http://www.gigacart.com
-Version: 1.0
+Version: 1.0.3
 */
 
 require_once(ABSPATH . WPINC . '/rss.php');
@@ -14,6 +14,8 @@ if (!defined('MAGPIE_FETCH_TIME_OUT'))
     define('MAGPIE_FETCH_TIME_OUT', 2); // 2 second timeout
 if (!defined('MAGPIE_USE_GZIP'))
     define('MAGPIE_USE_GZIP', true);
+if (!defined('MAGPIE_DEBUG'))
+    define('MAGPIE_DEBUG', false);
 /*
  * Class for plugin's widget
  */
@@ -83,7 +85,7 @@ class random_jokes_widgets {
                     $linkUrl = $widgetData["default_link"]->link_url;
                 }
                 // Display joke
-                $outputLines .= ltrim($value["description"], "|").'</br>';
+                $outputLines .= ltrim($value["description"], "|");
                 // Display link only in homepage
                 if($value["source"] && is_home()) {
                     $outputLines .= '<br /><small><a href="'.$linkUrl.'">'.$linkTitle.'</a></small>';
