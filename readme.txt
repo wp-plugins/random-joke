@@ -4,7 +4,7 @@ Donate link:
 Tags: joke, jokes, random, widget, sidebar, random jokes, randomness, just for fun
 Requires at least: 2.8
 Tested up to: 3
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 Random jokes widget helps you display random jokes everywhere on your blog. Over 25,000 jokes in 75 categories. Cheer up your blog readers :)
 
@@ -27,13 +27,17 @@ The main features:
 
 == Changelog ==
 
-= 1.0.1 =
-* Update : Updated plugin description
-* Update : Optimized widget's initialization function
-
-= 1.0.2 =
-* Update : Changed widget's rendering function
+= 1.0.4 =
+* Update : Updated widget's default parameters values
+* Update : Increased connection timeout value to our database
 
 = 1.0.3 =
 * Fix : Removed PHP warning message, which was displayed in some cases
 * Update : Changed widget's rendering function
+
+= 1.0.2 =
+* Update : Changed widget's rendering function
+
+= 1.0.1 =
+* Update : Updated plugin description
+* Update : Optimized widget's initialization function

@@ -5,13 +5,13 @@ Plugin URI: http://www.gigacart.com/random-joke-widget.html
 Description: Widget displays random categorized jokes on your blog. There are over 25,000 jokes in 75 categories. Jokes are saved on gigacart.com database, so you don't need to have space for all the information.
 Author: GigaCart
 Author URI:http://www.gigacart.com
-Version: 1.0.3
+Version: 1.0.4
 */
 
 require_once(ABSPATH . WPINC . '/rss.php');
 
 if (!defined('MAGPIE_FETCH_TIME_OUT'))
-    define('MAGPIE_FETCH_TIME_OUT', 2); // 2 second timeout
+    define('MAGPIE_FETCH_TIME_OUT', 5); // 5 second timeout
 if (!defined('MAGPIE_USE_GZIP'))
     define('MAGPIE_USE_GZIP', true);
 if (!defined('MAGPIE_DEBUG'))
@@ -278,7 +278,7 @@ class random_jokes_widgets {
 		$default_options = array(
 				'title' => __('Random Joke', 'random-jokes'), 
 				'word_count' => 10000,
-				'cachetime' => 0
+				'cachetime' => 300
 		);
 
         if (-1 == $number) {
@@ -299,7 +299,7 @@ class random_jokes_widgets {
 			<label for="widget_random_jokes-<?php echo $number; ?>-category"><?php _e('Select category (ctrl + click to select multiple categories)'); ?></label><br />
 			<select id="widget_random_jokes-<?php echo $number; ?>-category" name="widget_random_jokes[<?php echo $number; ?>][category][]" multiple size="5" style="height:auto">
 					<? foreach($this->getCategories() as $category) {?>
-					<option value="<?php echo $category->cid?>"<?php if (in_array($category->cid, explode(',',$values['category']))) echo ' selected="selected"'; ?>><?php echo $category->name; ?></option>
+					<option value="<?php echo $category->cid?>"<?php if (in_array($category->cid, explode(',',$values['category'])) || !($values['category'])) echo ' selected="selected"'; ?>><?php echo $category->name; ?></option>
 					<? } ?>
 			</select>
 		</p>
