@@ -4,7 +4,7 @@ Donate link:
 Tags: joke, jokes, random, widget, sidebar, random jokes, randomness, just for fun
 Requires at least: 2.8
 Tested up to: 3
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 
 Random jokes widget helps you display random jokes everywhere on your blog. Over 25,000 jokes in 75 categories. Cheer up your blog readers :)
 
@@ -26,6 +26,9 @@ The main features:
 4. Go to Appearance -> widgets and drag Jokes widget to selected widget area. Press ctrl + click to select multiple jokes categories. Joke length limit (in words) allows you to set the maximum length of a joke. Widget caches data to a file. Setting "Cache time in seconds" allows you to set for how long the same joke is showed on the site. 
 
 == Changelog ==
+
+= 1.0.5 =
+* Fix : Display direct error message instead of fatal error when facing connection problems to our database
 
 = 1.0.4 =
 * Update : Updated widget's default parameters values

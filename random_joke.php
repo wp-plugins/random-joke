@@ -5,7 +5,7 @@ Plugin URI: http://www.gigacart.com/random-joke-widget.html
 Description: Widget displays random categorized jokes on your blog. There are over 25,000 jokes in 75 categories. Jokes are saved on gigacart.com database, so you don't need to have space for all the information.
 Author: GigaCart
 Author URI:http://www.gigacart.com
-Version: 1.0.4
+Version: 1.0.5
 */
 
 require_once(ABSPATH . WPINC . '/rss.php');
@@ -142,7 +142,9 @@ class random_jokes_widgets {
 
                 if ($wp_version >= '2.7') {
                 // Before output, let's save new data to cache
-                if ($htmlOutput['response']['code'] == 200)
+                if ( is_wp_error($htmlOutput) )
+                    return $htmlOutput->get_error_message();
+                elseif ($htmlOutput['response']['code'] == 200)
                    $this->saveData($htmlOutput['body'], $widgetId);
                 } else {
                     // Before output, let's save new data to cache
@@ -159,9 +161,11 @@ class random_jokes_widgets {
             $htmlOutput = $this->fetchData($widgetData);
 
             if ($wp_version >= '2.7') {
-            // Before output, let's save new data to cache
-            if ($htmlOutput['response']['code'] == 200)
-                $this->saveData($htmlOutput['body'], $widgetId);
+                // Before output, let's save new data to cache
+                if ( is_wp_error($htmlOutput) )
+                    return $htmlOutput->get_error_message();
+                elseif ($htmlOutput['response']['code'] == 200)
+                   $this->saveData($htmlOutput['body'], $widgetId);
             } else {
             // Before output, let's save new data to cache
             if ($htmlOutput->status == '200')
